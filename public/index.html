@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#06051a">
+  <title>Typing Racer</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/screens.css">
+</head>
+<body>
+  <div id="app" class="app" data-phase="lobby">
+
+    <section id="landing" class="landing" aria-labelledby="landing-title">
+      <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="landing-tools">
+        <button id="landing-sound" class="btn btn-icon btn-ghost" type="button" aria-pressed="true"></button>
+        <button id="landing-help" class="btn btn-ghost" type="button">How to play</button>
+      </div>
+      <div class="landing-scroll">
+        <div class="landing-inner">
+          <header class="brand">
+            <div class="brand-stripe" aria-hidden="true"></div>
+            <h1 id="landing-title" class="logo"><span class="logo-a">Typing</span><span class="logo-b">Racer</span></h1>
+            <p class="tagline">Race your friends. Type fast. Win the Grand Prix.</p>
+            <div id="my-stats" class="chips"></div>
+          </header>
+
+          <div id="invite-banner" class="invite-banner" hidden>
+            <p>You are invited to race in room <strong id="invite-code"></strong></p>
+            <button id="invite-join" class="btn btn-primary" type="button">Join this race</button>
+          </div>
+
+          <div class="landing-grid">
+            <section class="card" aria-labelledby="garage-title">
+              <h2 id="garage-title" class="card-title"><span class="step">1</span>Build your driver</h2>
+              <div id="garage-slot"></div>
+            </section>
+
+            <section class="card" aria-labelledby="play-title">
+              <h2 id="play-title" class="card-title"><span class="step">2</span>Hit the track</h2>
+              <div class="play-stack">
+                <button id="btn-create" class="btn btn-primary btn-lg" type="button">Create a race</button>
+                <button id="btn-practice" class="btn btn-ghost" type="button">Practice with bots</button>
+                <p class="muted center">You become the host. Friends join with a link or a code.</p>
+                <div class="divider"><span>or join a friend</span></div>
+                <p id="rooms-hint" class="muted"></p>
+                <ul id="open-rooms" class="room-list"></ul>
+                <form id="join-form" class="join-form" autocomplete="off">
+                  <label class="field">
+                    <span class="field-label">Room code</span>
+                    <input id="join-code" class="input input-code" type="text" maxlength="4" placeholder="ABCD" autocapitalize="characters" spellcheck="false" aria-label="Room code">
+                  </label>
+                  <button id="join-submit" class="btn btn-ghost" type="submit">Join</button>
+                </form>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="game" class="game" hidden>
+      <header class="topbar">
+        <div class="topbar-brand" aria-hidden="true">Typing <b>Racer</b></div>
+        <button id="plate" class="plate plate-button" type="button" title="Copy invite link" aria-label="Room code. Click to copy the invite link">
+          <span class="plate-band" aria-hidden="true">TR</span>
+          <span id="plate-code" class="plate-code">----</span>
+          <span id="plate-copy" class="plate-copy" aria-hidden="true"></span>
+        </button>
+        <div id="status" class="status" role="status"></div>
+        <div class="tools">
+          <button id="btn-sound" class="btn btn-icon btn-ghost" type="button" aria-pressed="true"></button>
+          <button id="btn-full" class="btn btn-icon btn-ghost" type="button" aria-label="Toggle fullscreen"></button>
+          <button id="btn-help" class="btn btn-icon btn-ghost" type="button" aria-label="How to play"></button>
+          <button id="btn-leave" class="btn btn-icon btn-ghost" type="button" aria-label="Leave race"></button>
+        </div>
+      </header>
+
+      <main id="stage" class="stage">
+        <canvas id="track" class="track-canvas" role="img" aria-label="Race track showing every driver's car"></canvas>
+        <div id="lights" class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div id="countdown" class="countdown" role="status" aria-live="assertive" hidden></div>
+        <div id="stage-chip" class="stage-chip" hidden></div>
+      </main>
+
+      <section id="console" class="console" aria-label="Race console">
+        <div id="panel-lobby" class="panel"></div>
+        <div id="panel-race" class="panel" hidden></div>
+        <div id="panel-results" class="panel" hidden></div>
+      </section>
+    </div>
+
+    <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+    <div id="conn-banner" class="conn-banner" role="alert" hidden>Connection lost. Getting you back into the race&hellip;</div>
+    <dialog id="dialog" class="dialog"></dialog>
+  </div>
+  <noscript>Typing Racer needs JavaScript. Please enable it and reload the page.</noscript>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
