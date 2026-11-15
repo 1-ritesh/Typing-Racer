@@ -2,6 +2,10 @@
 
 Typing Racer is a browser-based typing game. Race friends or practice against bots, customize your car, and choose from four tracks, including Moon.
 
+## Gameplay Demo
+
+[Watch the gameplay video](Output.mp4)
+
 ## Requirements
 
 - Python 3.9 or newer
