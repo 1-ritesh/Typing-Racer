@@ -4,7 +4,7 @@ Typing Racer is a browser-based typing game. Race friends or practice against bo
 
 ## Gameplay Demo
 
-[Watch the gameplay video](Output.mp4)
+[Watch the gameplay video](Gameplay.mp4)
 
 ## Requirements
 
